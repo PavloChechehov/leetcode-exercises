@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * <a href="https://leetcode.com/problems/3sum/">Leetcode 15: 3Sum</a>
+ * This is a similar exercise
+ * */
+
 public class FindAllTriples {
 
 
