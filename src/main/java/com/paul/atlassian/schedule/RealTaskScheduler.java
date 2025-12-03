@@ -9,14 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class RealTaskScheduler implements TaskScheduler{
 
     // Represents a scheduled item
-    public static class ScheduledTask implements Comparable<ScheduledTask> {
-        final long time;
-        final Runnable runnable;
-
-        public ScheduledTask(long time, Runnable runnable) {
-            this.time = time;
-            this.runnable = runnable;
-        }
+    public record ScheduledTask(long time, Runnable task) implements Comparable<ScheduledTask> {
 
         @Override
         public int compareTo(ScheduledTask o) {
@@ -43,7 +36,7 @@ public class RealTaskScheduler implements TaskScheduler{
 
     @Override
     public List<Runnable> runDueTasks(long now) {
-        return List.of();
+        throw new ThisMethodIsNotUsedException("This method is not used in this implementation");
     }
     /** Background thread that polls tasks */
     @Override
@@ -64,31 +57,50 @@ public class RealTaskScheduler implements TaskScheduler{
     // Main loop
     private void runLoop() {
         while (running.get()) {
-            ScheduledTask nextTask = null;
             long now = System.currentTimeMillis();
+            ScheduledTask nextTask = getNextReadyTaskOrWait(now);
+            if (nextTask == null) continue;
+            executor.submit(nextTask.task);
+        }
+    }
 
-            synchronized (lock) {
-                // wait for tasks if empty
-                while (pq.isEmpty() && running.get()) {
-                    waitOnLock();
-                }
-                if (!running.get()) break;
+    private ScheduledTask getNextReadyTaskOrWait(long now) {
+        synchronized (lock) {
 
-                nextTask = pq.peek();
-                long delay = nextTask.time - now;
+            // Wait until there is at least one task
+            waitWhileQueueEmpty();
 
-                if (delay > 0) {
-                    // sleep until task time or until new task arrives
-                    waitOnLock(delay);
-                    continue;
-                }
-
-                // due task
-                pq.poll();
+            // If we were woken up due to shutdown
+            if (!running.get()) {
+                return null;
             }
 
-            // run task outside lock
-            executor.submit(nextTask.runnable);
+            // Peek at the nearest future task
+            ScheduledTask next = pq.peek();
+            long delay = next.time - now;
+
+            if (delay > 0) {
+                // Wait until it's time (or something new arrives)
+                waitUntil(next.time);
+                return null;  // Not ready yet
+            }
+
+            // Due now
+            return pq.poll();
+        }
+    }
+
+
+    private void waitWhileQueueEmpty() {
+        while (pq.isEmpty() && running.get()) {
+            waitOnLock();
+        }
+    }
+
+    private void waitUntil(long targetTime) {
+        long delay = targetTime - System.currentTimeMillis();
+        if (delay > 0) {
+            waitOnLock(delay);
         }
     }
 
