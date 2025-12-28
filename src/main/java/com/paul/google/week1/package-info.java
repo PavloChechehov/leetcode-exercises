@@ -12,6 +12,14 @@ Use standard Java collections:
  - PriorityQueue
 
 Practice the leetcode problems:
- - Two Sum
+ 26.12:
+    - Two Sum
+ 27.12:
+    - ThreeSum
+    - BinarySearch
+    - MaximumUnits
+ 28.12
+    - Longest Substring Without Repeating Characters
+    -
 
  */
