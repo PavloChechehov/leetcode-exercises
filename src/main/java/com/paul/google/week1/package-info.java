@@ -22,7 +22,9 @@ Practice the leetcode problems:
     - Longest Substring Without Repeating Characters
     - LeetCode 560: Subarray Sum Equals K
     - 238. Product of Array Except Self
+ 29.12
     - 206. Reverse Linked List
-    -
+    - 141. Linked List Cycle
+    - 21: Merge Two Sorted Lists
 
  */
