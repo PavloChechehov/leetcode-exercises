@@ -27,5 +27,7 @@ Practice the leetcode problems:
     - 141. Linked List Cycle
     - 21: Merge Two Sorted Lists
     - Square root
+ 30.12 [union-find, dfs,bfs]
+    - 200. Number of Islands
 
  */
