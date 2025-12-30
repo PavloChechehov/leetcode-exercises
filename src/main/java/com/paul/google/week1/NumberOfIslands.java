@@ -25,11 +25,12 @@ public class NumberOfIslands {
 
         int res = 0;
         for (int i = 0; i < grid.length; i++) {
-            char[] row = grid[i];
-            for (int j = 0; j < row.length; j++) {
+            for (int j = 0; j < grid[0].length; j++) {
+
                 if (grid[i][j] == '1') {
                     res++;
-                    dfsHelper( i, j);
+                    grid[i][j] = '0';   // mark starting cell
+                    dfsHelper(i, j);
                 }
             }
 
@@ -42,14 +43,15 @@ public class NumberOfIslands {
 
         for (int[] direction : directions) {
 
-            int x = direction[0];
-            int y = direction[1];
+            int newPosI = i + direction[0];
+            int newPosJ = j + direction[1];
 
-            int newPosI = i + x;
-            int newPosJ = j + y;
+            if (newPosI >= 0 && newPosJ >= 0
+                    && newPosI < grid.length
+                    && newPosJ < grid[0].length
+                    && grid[newPosI][newPosJ] == '1') {
 
-            if (newPosI >= 0 && newPosJ >= 0 && newPosI < grid.length && newPosJ < grid[0].length && grid[newPosI][newPosJ] == '1') {
-                grid[newPosI][newPosJ] = '0'; //visited
+                grid[newPosI][newPosJ] = '0'; // mark visited
                 dfsHelper(newPosI, newPosJ);
             }
         }
