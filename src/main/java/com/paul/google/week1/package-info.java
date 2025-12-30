@@ -30,5 +30,6 @@ Practice the leetcode problems:
  30.12 [union-find, dfs,bfs]
     - 200. Number of Islands - try to recall this problem
     - 20. Valid Parentheses
+    - 155. Min Stack
 
  */
