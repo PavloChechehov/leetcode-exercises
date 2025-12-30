@@ -26,5 +26,6 @@ Practice the leetcode problems:
     - 206. Reverse Linked List
     - 141. Linked List Cycle
     - 21: Merge Two Sorted Lists
+    - Square root
 
  */
