@@ -1,0 +1,13 @@
+package com.paul.google.week2;
+
+/*
+ Week1: 01.01.2026 - 07.01.2026
+ Topics:
+    - Stack & Queue (Monotonic Stack)
+    - Recursion & Backtracking
+    - Trees, Graphs, Binary Search
+    - Graphs
+
+ 1.01.2026
+    - 739. Daily Temperatures
+ */
