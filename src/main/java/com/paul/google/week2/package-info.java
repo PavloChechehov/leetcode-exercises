@@ -15,4 +15,6 @@ package com.paul.google.week2;
     - 643. Maximum Average Subarray I
     - 153. Find Minimum in Rotated Sorted Array
     - 500. Keyboard Row
+ 3.01.2026
+    - 35. Search Insert Position
  */
