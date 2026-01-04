@@ -1,5 +1,8 @@
 package com.paul.google.week2;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * <a href="https://leetcode.com/problems/same-tree/description">100. Same Tree</a>
  */
@@ -9,7 +12,6 @@ public class SameTree {
         TreeNode q = new TreeNode();
         boolean isSameTree = isSameTree(p, q);
         System.out.println(isSameTree);
-
     }
 
 
@@ -18,15 +20,11 @@ public class SameTree {
             return true;
         }
 
-        if (p == null || q == null) {
+        if (p == null || q == null || p.val != q.val) {
             return false;
         }
 
-        if (p.val == q.val) {
-            return isSameTree(p.left, q.left);
-        }
-
-        return false;
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }
 
