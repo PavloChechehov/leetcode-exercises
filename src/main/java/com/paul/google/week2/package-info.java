@@ -20,4 +20,5 @@ package com.paul.google.week2;
     - 100. Same Tree
  4.01.2026
     - 572. Subtree of Another Tree
+    - 33. Search in Rotated Sorted Array
  */
