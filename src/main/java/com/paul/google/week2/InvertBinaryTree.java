@@ -1,24 +1,41 @@
 package com.paul.google.week2;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * <a href="https://leetcode.com/problems/invert-binary-tree/description/">226. Invert Binary Tree</a>
  */
 public class InvertBinaryTree {
 
-    public TreeNode invertTree(TreeNode root) {
+    //recursive approach
+/*    public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
         }
 
-        TreeNode dummy = new TreeNode(root.val, switchNode(root.right), switchNode(root.left));
-        return dummy;
+        return new TreeNode(root.val, invertTree(root.right), invertTree(root.left));
     }
+*/
 
-    public TreeNode switchNode(TreeNode node) {
-        if (node == null) {
-            return null;
+    //iteratively approach with using the Queue
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
         }
 
-        return new TreeNode(node.val, switchNode(node.right), switchNode(node.left));
+        return root;
     }
 }
