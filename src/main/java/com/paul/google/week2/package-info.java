@@ -23,4 +23,5 @@ package com.paul.google.week2;
     - 33. Search in Rotated Sorted Array
  5.01.2026
     - 226. Invert Binary Tree
+    - 852. Peak Index in a Mountain Array
  */
