@@ -23,5 +23,8 @@ package com.paul.google.week2;
     - 33. Search in Rotated Sorted Array
  5.01.2026
     - 226. Invert Binary Tree
+ 6.01.2026
     - 852. Peak Index in a Mountain Array
+ 7.01.2026
+    - 83. Remove Duplicates from Sorted List
  */
