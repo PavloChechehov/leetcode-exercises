@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 
+
+/**
+ * <a href="https://leetcode.com/problems/maximum-units-on-a-truck/description/">1710. Maximum Units on a Truck</a>
+ */
 public class MaximumUnits {
 
 
