@@ -4,6 +4,17 @@ import java.util.List;
 
 /**
  * <a href="https://algo.monster/problems/knapsack_intro">Knapsack intro</a>
+ * 0/1 Knapsack Practice Problem
+ * Let's apply the 0/1 knapsack pattern with a practical example.
+ * <p>
+ * Given n items where item i has weight weights[i] and value values[i],
+ * find the maximum total value achievable without exceeding capacity max_weight.
+ * Each item can be selected at most once.
+ * <p>
+ * Input
+ * weights: an array of integers that denote the weights of objects
+ * values: an array of integers that denote the values of objects
+ * max_weight: the maximum weight capacity of the knapsack
  */
 public class Knapsack {
 
