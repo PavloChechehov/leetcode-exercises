@@ -20,6 +20,7 @@ public class KeyboardRow {
 
 
     // I think this solution is not optimal, however it works. Maybe I will return back to check more optimal
+/*
     public static String[] findWords(String[] words) {
         String row1 = "qwertyuiop";
         String row2 = "asdfghjkl";
@@ -61,6 +62,37 @@ public class KeyboardRow {
             }
         }
 //["Alaska","Dad"]
+        return res.toArray(new String[0]);
+    }
+*/
+
+    public static String[] findWords(String[] words) {
+        Set<Character> row1 = getSet("qwertyuiop");
+        Set<Character> row2 = getSet("asdfghjkl");
+        Set<Character> row3 = getSet("zxcvbnm");
+
+        List<String> res = new ArrayList<>();
+
+        for (String word : words) {
+            String w = word.toLowerCase();
+            Set<Character> row;
+
+            char first = w.charAt(0);
+            if (row1.contains(first)) row = row1;
+            else if (row2.contains(first)) row = row2;
+            else row = row3;
+
+            boolean valid = true;
+            for (char c : w.toCharArray()) {
+                if (!row.contains(c)) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid) res.add(word);
+        }
+
         return res.toArray(new String[0]);
     }
 
