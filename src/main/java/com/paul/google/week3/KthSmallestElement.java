@@ -14,7 +14,7 @@ public class KthSmallestElement {
     }
 
 
-    public int kthSmallest(TreeNode root, int k) {
+    /*public int kthSmallest(TreeNode root, int k) {
 
         PriorityQueue<Integer> queue = new PriorityQueue<>();
 
@@ -44,6 +44,33 @@ public class KthSmallestElement {
             queue.add(root.right.val);
             dfs(root.right, queue);
         }
+    }*/
+
+    private int count;
+    private int result;
+
+    public int kthSmallest(TreeNode root, int k) {
+        count = k;
+        inorder(root);
+        return result;
+    }
+
+    private void inorder(TreeNode node) {
+        if (node == null) return;
+
+        // Left
+        inorder(node.left);
+
+        // Visit
+        count--;
+        if (count == 0) {
+            result = node.val;
+            return;
+        }
+
+        // Right (only if we haven't found the answer)
+        //
+        inorder(node.right);
     }
 
 
