@@ -36,7 +36,7 @@ public class ContainerWithMostWater {
         }
 
     }
-
+    // two pointers solution to find the max area of water
     public static int maxArea(int[] height) {
         int len = height.length;
         int l = 0;
