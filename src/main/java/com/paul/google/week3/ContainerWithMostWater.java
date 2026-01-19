@@ -46,12 +46,6 @@ public class ContainerWithMostWater {
         while (l < r) {
             // calculate the area;
 
-            // if prevArea > currArea
-            // l++;
-            // if prevArea < currArea
-            // r++;
-            // max = Math(max, area);
-
             int left = height[l];
             int right = height[r];
 
