@@ -9,6 +9,16 @@ import java.util.PriorityQueue;
  *
  * <a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/">373. Find K Pairs with Smallest Sums</a>
  */
+
+/**
+ * The pair data container class
+ * @param i is index of first array
+ * @param j is index of second array
+ * @param sum sum of nums1[i] + nums2[j]
+ */
+record Pair(int i, int j, int sum) {
+}
+
 public class FindKPairs {
     public static void main(String[] args) {
         int[] nums1 = {1, 2, 4, 5, 6};
@@ -21,10 +31,7 @@ public class FindKPairs {
 
 
     public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-        PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(p -> p.sum()));
-
-        int n1 = Math.min(k, nums1.length);
-        int n2 = Math.min(k, nums2.length);
+        PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(Pair::sum));
 
         List<List<Integer>> res = new ArrayList<>();
 
@@ -40,6 +47,7 @@ public class FindKPairs {
             if j + 1 exists:
             push (i, j + 1)
         */
+
         // Initialize with (i, 0)
         // Extract k smallest pairs
         while (k > 0 && !pq.isEmpty()) {
@@ -58,7 +66,6 @@ public class FindKPairs {
 
         return res;
     }
-
 
 
 //first iteration: brute force
@@ -92,8 +99,5 @@ public class FindKPairs {
 
         return res;
     }*/
-}
-
-record Pair(int i, int j, int sum) {
 }
 
