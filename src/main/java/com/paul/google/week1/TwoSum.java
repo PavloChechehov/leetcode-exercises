@@ -1,5 +1,6 @@
 package com.paul.google.week1;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,12 +11,12 @@ import java.util.Map;
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] nums = {11, 2, 15, 1, 3, 4};
+        int[] nums = {11, 2, 15, 1, 5, 4, 2, 7};
         int target = 9;
 
         int[] res = twoSum(nums, target);
 
-        System.out.println();
+        System.out.println(Arrays.toString(res));
     }
 
     public static int[] twoSum(int[] nums, int target) {
