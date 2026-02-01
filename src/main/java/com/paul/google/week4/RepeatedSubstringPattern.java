@@ -1,13 +1,14 @@
 package com.paul.google.week4;
 
+/**
+ * <a href="https://leetcode.com/problems/repeated-substring-pattern/description/">459. Repeated Substring Pattern</a>
+ */
 public class RepeatedSubstringPattern {
 
     public static void main(String[] args) {
 
-        System.out.println("Aa".hashCode() == "BB".hashCode());
-
-//        boolean res = repeatedSubstringPattern("ababa");
-//        System.out.println(res);
+        boolean res = repeatedSubstringPattern("ababa");
+        System.out.println(res);
     }
 
 
