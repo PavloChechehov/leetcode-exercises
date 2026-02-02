@@ -11,8 +11,8 @@ public class CopyListWithRandomPointer {
 
     }
 
-
-    public Node copyRandomList(Node head) {
+    //approach 1
+    /*public Node copyRandomList(Node head) {
 
         Node dummy = head;
         Map<Node, Node> copyNodes = new HashMap<>();
@@ -38,6 +38,31 @@ public class CopyListWithRandomPointer {
         }
 
         return copyNodes.get(dummy);
+
+    }*/
+
+    //approach2: a little bit elegant with gemini helps
+    public Node copyRandomList(Node head) {
+        if (head == null) return null;
+        Map<Node, Node> copyNodes = new HashMap<>();
+
+        Node dummy = head;
+
+        while(dummy != null) {
+            copyNodes.put(dummy, new Node(dummy.val));
+            dummy = dummy.next;
+        }
+
+        dummy = head;
+        while(dummy != null) {
+            Node node = copyNodes.get(dummy);
+
+            node.next = copyNodes.get(dummy.next);
+            node.random = copyNodes.get(dummy.random);
+            dummy = dummy.next;
+        }
+
+        return copyNodes.get(head);
 
     }
 }
