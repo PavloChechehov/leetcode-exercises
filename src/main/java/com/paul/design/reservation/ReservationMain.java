@@ -14,6 +14,7 @@ public class ReservationMain {
         System.out.println(restaurant.bookTable(1, 10, 12)); // true
         System.out.println(restaurant.bookTable(1, 12, 14)); // true
         System.out.println(restaurant.bookTable(1, 11, 13)); // false (overlap)
+        System.out.println(restaurant.bookTable(2, 11, 13)); // Table not found exception
     }
 
 

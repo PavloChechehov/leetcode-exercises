@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 class Restaurant {
 
     private final List<Table> tables = new ArrayList<>();
-    private final Map<Integer, List<RangeReservation>> reservations = new HashMap<>();
+    private final Map<Table, List<RangeReservation>> reservations = new HashMap<>();
     private final ReentrantLock lock = new ReentrantLock();
 
     /* ----------------- Setup ----------------- */
@@ -18,7 +18,7 @@ class Restaurant {
         lock.lock();
         try {
             tables.add(table);
-            reservations.putIfAbsent(table.tableId(), new ArrayList<>());
+            reservations.putIfAbsent(table, new ArrayList<>());
         } finally {
             lock.unlock();
         }
@@ -38,7 +38,7 @@ class Restaurant {
         try {
             Table table = findTableById(tableId);
             List<RangeReservation> tableReservations =
-                    reservations.computeIfAbsent(tableId, k -> new ArrayList<>());
+                    reservations.computeIfAbsent(table, k -> new ArrayList<>());
 
             if (isTableReserved(start, finish, tableReservations)) {
                 return false;
@@ -75,12 +75,12 @@ class Restaurant {
     }
 
     private static boolean rangesOverlap(
-            int start1,
-            int end1,
-            int start2,
-            int end2
+            int newStart,
+            int newFinish,
+            int existingStart,
+            int existingFinish
     ) {
-        return start1 < end2 && end1 > start2;
+        return newStart < existingFinish && newFinish > existingStart;
     }
 
     private static void validateRange(int start, int finish) {
