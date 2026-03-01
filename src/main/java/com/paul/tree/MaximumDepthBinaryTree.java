@@ -6,26 +6,6 @@ package com.paul.tree;
  */
 public class MaximumDepthBinaryTree {
 
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public int maxDepth(TreeNode root) {
         int res = dfs(root, 0);
         return res;
