@@ -1,6 +1,8 @@
 package com.paul.tree;
 
 
+import com.paul.blind75.TreeNode;
+
 /**
  * Maximum Depth of Binary Tree <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">link</a>
  */
