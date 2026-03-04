@@ -8,9 +8,7 @@ import java.util.List;
  *
  * <a href="https://leetcode.com/problems/binary-tree-inorder-traversal/description/">94. Binary Tree Inorder Traversal</a>
  */
-class Solution {
-
-
+class BinaryTreeInorderTraversal {
 
     public List<Integer> inorderTraversal(TreeNode root) {
         // 1 -> 2 -> 3
