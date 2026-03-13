@@ -3,6 +3,9 @@ package com.paul.blind75;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <a href="https://leetcode.com/problems/summary-ranges/description/">228. Summary Ranges</a>
+ */
 public class SummaryRanges {
 
     public static void main(String[] args) {
