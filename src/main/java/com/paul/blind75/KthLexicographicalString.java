@@ -34,7 +34,5 @@ public class KthLexicographicalString {
                 build(n - 1, s + c, list);
             }
         }
-
-        return;
     }
 }
