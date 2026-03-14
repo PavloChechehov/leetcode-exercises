@@ -22,7 +22,7 @@ public class FindTreePath {
         if (node == null) return;
 
         if (node.left == null && node.right == null) {
-            list.add(s + "" + node.val);
+            list.add(s + node.val);
             return;
         }
 
