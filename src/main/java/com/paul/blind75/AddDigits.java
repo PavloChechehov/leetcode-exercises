@@ -29,4 +29,13 @@ public class AddDigits {
 
         return curr;
     }
+
+    //solution 2: found in the answer, but very interesting.
+/*    public int addDigits(int num) {
+        if (num == 0)
+            return 0;
+        if (num % 9 == 0)
+            return 9;
+        return num % 9;
+    }*/
 }
