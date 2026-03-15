@@ -6,7 +6,13 @@ package com.paul.blind75;
  */
 public class FibonacciNumber {
 
-    public int fib(int n) {
+
+    public static void main(String[] args) {
+        int res = fib(8);
+        System.out.println(res);
+    }
+
+    public static int fib(int n) {
         if (n == 0) return 0;
 
         int a = 1;
